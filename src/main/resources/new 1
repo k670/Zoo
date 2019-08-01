@@ -1,0 +1,10 @@
+{ "animals": [ 
+	{"name":"duck",	"say":"Quack-quack"},
+	{"name":"sheep",	"say":"Baa-baa"},
+	{"name":"dog",	"say":"Woof-woof"},
+	{"name":"sparrow",	"say":"Cheep-cheep"},
+	{"name":"cow",	"say":"Moo-moo"},
+	{"name":"pig",	"say":"Oink-oink"},
+	{"name":"cat",	"say":"Meow"},
+	{"name":"nothing",	"say":"Boo"},
+] }

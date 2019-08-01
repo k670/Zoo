@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+    <Appenders>
+
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level  %logger{36} - %msg %mdc  %n"/>
+        </Console>
+
+        <File name="AnimalListChangeFile" fileName="..\temp\all.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex %mdc %n</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="animalJsonFileAppender" fileName="..\temp\animalJSON.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m %ex %mdc %n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="FilterZoo" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="ServletZoo" level="WARN" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="ServletAnimalListChange" level="ALL" additivity="false">
+            <AppenderRef ref="AnimalListChangeFile"/>
+        </Logger>
+
+        <Logger name="AnimalDumper" level="INFO" additivity="false">
+            <AppenderRef ref="animalJsonFileAppender"/>
+        </Logger>
+
+
+
+    </Loggers>
+
+
+</Configuration>
