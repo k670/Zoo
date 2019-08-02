@@ -7,14 +7,28 @@
         <param-name>log4jConfiguration</param-name>
         <param-value>file:///D:/projects/personal/ZooTry1/out/artifacts/ZooTry1_war_exploded/WEB-INF/classes/log4j2.xml</param-value>
     </context-param>
+<!--
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>-->
+
+    <servlet>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
     <filter>
         <filter-name>FilterZoo</filter-name>
-        <filter-class>FilterZoo</filter-class>
+        <filter-class>k670.FilterZoo</filter-class>
     </filter>
     <filter>
         <filter-name>FilterLetter</filter-name>
-        <filter-class>FilterLetter</filter-class>
+        <filter-class>k670.FilterLetter</filter-class>
     </filter>
 
     <filter-mapping>
@@ -28,11 +42,11 @@
 
     <servlet>
         <servlet-name>ServletZoo</servlet-name>
-        <servlet-class>ServletZoo</servlet-class>
+        <servlet-class>k670.ServletZoo</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ServletAnimalListChange</servlet-name>
-        <servlet-class>ServletAnimalListChange</servlet-class>
+        <servlet-class>k670.ServletAnimalListChange</servlet-class>
     </servlet>
     
     <servlet-mapping>
@@ -46,7 +60,7 @@
     </servlet-mapping>
 
     <listener>
-        <listener-class>AnimalDumperListener</listener-class>
+        <listener-class>k670.AnimalDumperListener</listener-class>
     </listener>
 
 </web-app>
