@@ -21,6 +21,7 @@ public class AnimalStorage {
 
     private String animalsToJSON(){
         String jsonResult=null;
+
         Map<String, String> animalList = new HashMap<>();
         AnimalNameAndSayData data = AnimalNameAndSayData.getInstance();
         Collection<String> animalsName = data.getAll();
@@ -28,6 +29,7 @@ public class AnimalStorage {
             animalList.put(name,data.getAnimal(name));
         });
         ObjectMapper mapper = new ObjectMapper();
+
         try {
             jsonResult = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(animalList);
         } catch (JsonProcessingException e) {
@@ -51,8 +53,8 @@ public class AnimalStorage {
         Map<String, String> animalHashMap = null;
         List<String> stringList;
         try {
-            stringList = Files.readAllLines(paths);
             StringBuilder jsonText = new StringBuilder();
+            stringList = Files.readAllLines(paths);
             stringList.forEach(jsonText::append);
             TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {};
             ObjectMapper mapper = new ObjectMapper();

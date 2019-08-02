@@ -17,7 +17,7 @@ public class FilterZoo implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         MDC.put("From", "FilterZoo");
         Optional<String> animalNameFromPath = Optional.ofNullable(((HttpServletRequest) req).getPathInfo());
-        String[] splitAnimalNameFromPath = animalNameFromPath.isPresent() ? animalNameFromPath.get().split("/") : new String[0];
+        String[] splitAnimalNameFromPath = animalNameFromPath.map(s -> s.split("/")).orElseGet(() -> new String[0]);
 
         if (splitAnimalNameFromPath.length > 1 && data.getAnimal(splitAnimalNameFromPath[1]) == null) {
             ((HttpServletResponse) resp).sendError(400);

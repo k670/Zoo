@@ -13,7 +13,7 @@ public class FilterLetter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
 
         Optional<String> animal1 = Optional.ofNullable(((HttpServletRequest) req).getPathInfo());
-        String[] pathAnimal1 = animal1.isPresent() ? animal1.get().split("/") : new String[0];
+        String[] pathAnimal1 = animal1.map(s -> s.split("/")).orElseGet(() -> new String[0]);
 
         if (pathAnimal1.length > 1 && pathAnimal1[1].length()%2 == 0) {
             ((HttpServletResponse) resp).sendError(500);

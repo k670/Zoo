@@ -42,5 +42,8 @@ class AnimalDumperTest {
 
     @Test
     void end() {
+        AnimalDumper.getInstance().end();
+        boolean end = executorService.isShutdown();
+        assertTrue(end);
     }
 }

@@ -57,7 +57,6 @@ public class ServletAnimalListChange extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter pw = response.getWriter();
-
         pw.println(animalsToJSON());
         logger.trace("Write animals' list");
     }
